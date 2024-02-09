@@ -26,11 +26,11 @@ def search_thirukkural(user_entry, selected_language):
     df_scores['Fuzzy_Score'] = df_scores[column_to_search].apply(lambda x: fuzz.ratio(x.lower(), user_entry_lower))
 
     # Set a threshold for matching
-    threshold = 70
+    threshold = 10
 
     # Check if any matches above the threshold
-    if df_scores['Fuzzy_Score'].max() < threshold:
-        st.warning("No matching Thirukkural found.")
+
+    if 'Fuzzy_Score' not in df_scores or df_scores['Fuzzy_Score'].max() < threshold:
         return pd.DataFrame()
 
     # Find the row with the highest fuzzy matching score above the threshold
