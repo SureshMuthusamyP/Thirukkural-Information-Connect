@@ -104,37 +104,41 @@ def main():
         
 
         # Display results or inform the user if no match is found
-        if result['Fuzzy_Score'] < 70:
-            st.warning("No matching Thirukkural found.")
-        else:
-            # Display individual content with border boxes
-            #st.subheader("Thirukkural Details:")
-            
-
-            if selected_language == 'தமிழ்':
-                custom_string = ""
-                st.markdown(f"<div class='container-header center-text'>{'தமிழ்'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>அதிகாரம்:</span> {result['அதிகாரம்']}<br><span class='key'>இயல்:</span> {result['இயல்']}<br><span class='key'>பால்:</span> {result['பால்']}<br><span class='key'>தமிழ்:</span>{result['தமிழ்']}<br><span class='key'>தமிழ் விளக்கம்:</span> {result['Tamil_Explanation']}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container-header center-text'>{'English'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>Chapter:</span> {result['Chapter']}<br><span class='key'>Book:</span> {result['Book']}<br><span class='key'>Division:</span> {result['Division']}<br><span class='key'>English:</span> {result['English']}<br><span class='key'>English Explanation:</span> {result['English_explanation']}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container-header center-text'>{'हिन्दी'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>अध्याय:</span> {result['अध्याय-chapter']}<br><span class='key'>पुस्तक:</span> {result['पुस्तक-book']}<br><span class='key'>विभाजन:</span> {result['विभाजन-Division']}<br><span class='key'>हिन्दी:</span> {result['हिन्दी']}<br><span class='key'>विवरण:</span>{result['Hindi_Explanation']}</div>", unsafe_allow_html=True)
-               
-            elif selected_language == 'English':
-                st.markdown(f"<div class='container-header center-text'>{'English'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>Chapter:</span> {result['Chapter']}<br><span class='key'>Book:</span> {result['Book']}<br><span class='key'>Division:</span> {result['Division']}<br><span class='key'>English:</span> {result['English']}<br><span class='key'>English Explanation:</span> {result['English_explanation']}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container-header center-text'>{'தமிழ்'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>அதிகாரம்:</span> {result['அதிகாரம்']}<br><span class='key'>இயல்:</span> {result['இயல்']}<br><span class='key'>பால்:</span> {result['பால்']}<br><span class='key'>தமிழ்:</span>{result['தமிழ்']}<br><span class='key'>தமிழ் விளக்கம்:</span> {result['Tamil_Explanation']}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container-header center-text'>{'हिन्दी'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>अध्याय:</span> {result['अध्याय-chapter']}<br><span class='key'>पुस्तक:</span> {result['पुस्तक-book']}<br><span class='key'>विभाजन:</span> {result['विभाजन-Division']}<br><span class='key'>हिन्दी:</span> {result['हिन्दी']}<br><span class='key'>विवरण:</span>{result['Hindi_Explanation']}</div>", unsafe_allow_html=True)
+        try:
+            if result['Fuzzy_Score'] < 10:
+                st.warning("No matching Thirukkural found.")
+            else:
+                # Display individual content with border boxes
+                #st.subheader("Thirukkural Details:")
                 
-            elif selected_language == 'हिन्दी':
-                st.markdown(f"<div class='container-header center-text'>{'हिन्दी'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>अध्याय:</span> {result['अध्याय-chapter']}<br><span class='key'>पुस्तक:</span> {result['पुस्तक-book']}<br><span class='key'>विभाजन:</span> {result['विभाजन-Division']}<br><span class='key'>हिन्दी:</span> {result['हिन्दी']}<br><span class='key'>विवरण:</span>{result['Hindi_Explanation']}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container-header center-text'>{'தமிழ்'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>அதிகாரம்:</span> {result['அதிகாரம்']}<br><span class='key'>இயல்:</span> {result['இயல்']}<br><span class='key'>பால்:</span> {result['பால்']}<br><span class='key'>தமிழ்:</span>{result['தமிழ்']}<br><span class='key'>தமிழ் விளக்கம்:</span> {result['Tamil_Explanation']}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container-header center-text'>{'English'}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div class='container center-text content'><span class='key'>Chapter:</span> {result['Chapter']}<br><span class='key'>Book:</span> {result['Book']}<br><span class='key'>Division:</span> {result['Division']}<br><span class='key'>English:</span> {result['English']}<br><span class='key'>English Explanation:</span> {result['English_explanation']}</div>", unsafe_allow_html=True)
+
+                if selected_language == 'தமிழ்':
+                    custom_string = ""
+                    st.markdown(f"<div class='container-header center-text'>{'தமிழ்'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>அதிகாரம்:</span> {result['அதிகாரம்']}<br><span class='key'>இயல்:</span> {result['இயல்']}<br><span class='key'>பால்:</span> {result['பால்']}<br><span class='key'>தமிழ்:</span>{result['தமிழ்']}<br><span class='key'>தமிழ் விளக்கம்:</span> {result['Tamil_Explanation']}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container-header center-text'>{'English'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>Chapter:</span> {result['Chapter']}<br><span class='key'>Book:</span> {result['Book']}<br><span class='key'>Division:</span> {result['Division']}<br><span class='key'>English:</span> {result['English']}<br><span class='key'>English Explanation:</span> {result['English_explanation']}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container-header center-text'>{'हिन्दी'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>अध्याय:</span> {result['अध्याय-chapter']}<br><span class='key'>पुस्तक:</span> {result['पुस्तक-book']}<br><span class='key'>विभाजन:</span> {result['विभाजन-Division']}<br><span class='key'>हिन्दी:</span> {result['हिन्दी']}<br><span class='key'>विवरण:</span>{result['Hindi_Explanation']}</div>", unsafe_allow_html=True)
+                
+                elif selected_language == 'English':
+                    st.markdown(f"<div class='container-header center-text'>{'English'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>Chapter:</span> {result['Chapter']}<br><span class='key'>Book:</span> {result['Book']}<br><span class='key'>Division:</span> {result['Division']}<br><span class='key'>English:</span> {result['English']}<br><span class='key'>English Explanation:</span> {result['English_explanation']}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container-header center-text'>{'தமிழ்'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>அதிகாரம்:</span> {result['அதிகாரம்']}<br><span class='key'>இயல்:</span> {result['இயல்']}<br><span class='key'>பால்:</span> {result['பால்']}<br><span class='key'>தமிழ்:</span>{result['தமிழ்']}<br><span class='key'>தமிழ் விளக்கம்:</span> {result['Tamil_Explanation']}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container-header center-text'>{'हिन्दी'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>अध्याय:</span> {result['अध्याय-chapter']}<br><span class='key'>पुस्तक:</span> {result['पुस्तक-book']}<br><span class='key'>विभाजन:</span> {result['विभाजन-Division']}<br><span class='key'>हिन्दी:</span> {result['हिन्दी']}<br><span class='key'>विवरण:</span>{result['Hindi_Explanation']}</div>", unsafe_allow_html=True)
+                    
+                elif selected_language == 'हिन्दी':
+                    st.markdown(f"<div class='container-header center-text'>{'हिन्दी'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>अध्याय:</span> {result['अध्याय-chapter']}<br><span class='key'>पुस्तक:</span> {result['पुस्तक-book']}<br><span class='key'>विभाजन:</span> {result['विभाजन-Division']}<br><span class='key'>हिन्दी:</span> {result['हिन्दी']}<br><span class='key'>विवरण:</span>{result['Hindi_Explanation']}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container-header center-text'>{'தமிழ்'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>அதிகாரம்:</span> {result['அதிகாரம்']}<br><span class='key'>இயல்:</span> {result['இயல்']}<br><span class='key'>பால்:</span> {result['பால்']}<br><span class='key'>தமிழ்:</span>{result['தமிழ்']}<br><span class='key'>தமிழ் விளக்கம்:</span> {result['Tamil_Explanation']}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container-header center-text'>{'English'}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='container center-text content'><span class='key'>Chapter:</span> {result['Chapter']}<br><span class='key'>Book:</span> {result['Book']}<br><span class='key'>Division:</span> {result['Division']}<br><span class='key'>English:</span> {result['English']}<br><span class='key'>English Explanation:</span> {result['English_explanation']}</div>", unsafe_allow_html=True)
+
+        except Exception as e:
+            st.warning("No matching Thirukkural found.")
 
 if __name__ == "__main__":
     main()
